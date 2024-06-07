@@ -1,5 +1,4 @@
 Creatify
-如果你的项目有一个特定的名称，可以在这里写上项目名称。
 
 Django REST API with JWT Authentication
 This project is a Django application that provides a RESTful API with JWT authentication. It includes endpoints for user signup, signin, and user profile retrieval.
