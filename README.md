@@ -1,80 +1,104 @@
-Creatify
 
-Django REST API with JWT Authentication
+# Creatify
+
+## Django REST API with JWT Authentication
+
 This project is a Django application that provides a RESTful API with JWT authentication. It includes endpoints for user signup, signin, and user profile retrieval.
 
-Features
-User signup (/signup/): Allows users to register by providing an email and password.
-User signin (/signin/): Authenticates users and provides JWT tokens for accessing protected endpoints.
-User profile (/me/): Retrieves the current user's profile information using JWT authentication.
-Requirements
-Docker
-Docker Compose
-Installation and Setup
-Clone the repository
+### Features
 
+- **User Signup** (`/signup/`):
+  Allows users to register by providing an email and password.
 
-git clone https://github.com/your_username/your_repository.git
-cd your_repository
-Environment Variables
+- **User Signin** (`/signin/`):
+  Authenticates users and provides JWT tokens for accessing protected endpoints.
 
-Create a .env file in the project root and add the following variables:
+- **User Profile** (`/me/`):
+  Retrieves the current user's profile information using JWT authentication.
 
+### Installation and Setup
 
-SECRET_KEY=your_django_secret_key
-DEBUG=1
-Replace your_django_secret_key with a secure random string for Django's secret key.
+1. **Clone the repository**
 
-Run Docker Compose
+   ```
+   git clone https://github.com/your_username/your_repository.git
+   cd your_repository
+   ```
 
-Start the Docker containers using Docker Compose:
+2. **Environment Variables**
 
+   Create a `.env` file in the project root and add the following variables:
 
-docker-compose up
-This will build the Docker images and start the Django application along with the required services (e.g., database).
+   ```
+   SECRET_KEY=your_django_secret_key
+   DEBUG=1
+   ```
 
-Apply Migrations
+   Replace `your_django_secret_key` with a secure random string for Django's secret key.
 
-Open another terminal or stop the running Docker Compose process (Ctrl+C) and apply Django migrations:
+3. **Run Docker Compose**
 
+   Start the Docker containers using Docker Compose:
 
-docker-compose exec web python manage.py migrate
-Accessing the API
+   ```
+   docker-compose up
+   ```
 
-Once the Docker containers are running, the API should be accessible at http://localhost:8000.
+   This will build the Docker images and start the Django application along with the required services (e.g., database).
 
-API Endpoints
-Signup: POST /signup/
+4. **Apply Migrations**
 
+   Open another terminal or stop the running Docker Compose process (Ctrl+C) and apply Django migrations:
 
-curl --location --request POST 'http://localhost:8000/signup/' \
---header 'Content-Type: application/json' \
---data-raw '{
-    "email": "test@example.com",
-    "password": "your_password"
-}'
-Signin: POST /signin/
+   ```
+   docker-compose exec web python manage.py migrate
+   ```
 
+5. **Accessing the API**
 
-curl --location --request POST 'http://localhost:8000/signin/' \
---header 'Content-Type: application/json' \
---data-raw '{
-    "email": "test@example.com",
-    "password": "your_password"
-}'
-User Profile: GET /me/
+   Once the Docker containers are running, the API should be accessible at `http://localhost:8000`.
 
+### API Endpoints
 
-curl --location --request GET 'http://localhost:8000/me/' \
---header 'Authorization: Bearer <your_access_token>'
-Replace <your_access_token> with the token obtained from the /signin/ endpoint.
+- **Signup**: `POST /signup/`
 
-Contributing
-Fork the repository
-Create a new branch (git checkout -b feature/new-feature)
-Make your changes
-Commit your changes (git commit -am 'Add new feature')
-Push to the branch (git push origin feature/new-feature)
-Create a new Pull Request
-License
-null
+  ```
+  curl --location --request POST 'http://localhost:8000/signup/' \
+  --header 'Content-Type: application/json' \
+  --data-raw '{
+      "email": "test@example.com",
+      "password": "your_password"
+  }'
+  ```
+
+- **Signin**: `POST /signin/`
+
+  ```
+  curl --location --request POST 'http://localhost:8000/signin/' \
+  --header 'Content-Type: application/json' \
+  --data-raw '{
+      "email": "test@example.com",
+      "password": "your_password"
+  }'
+  ```
+
+- **User Profile**: `GET /me/`
+
+  ```
+  curl --location --request GET 'http://localhost:8000/me/' \
+  --header 'Authorization: Bearer <your_access_token>'
+  ```
+
+  Replace `<your_access_token>` with the token obtained from the `/signin/` endpoint.
+
+### Contributing
+
+1. Fork the repository
+2. Create a new branch (`git checkout -b feature/new-feature`)
+3. Make your changes
+4. Commit your changes (`git commit -am 'Add new feature'`)
+5. Push to the branch (`git push origin feature/new-feature`)
+6. Create a new Pull Request
+
+### License
+free.
